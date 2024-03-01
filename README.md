@@ -103,3 +103,6 @@ async def main():
 
     # Завершение работы сессии
     await api.session.close()
+```
+
+API: https://franklin100.ru/developer
