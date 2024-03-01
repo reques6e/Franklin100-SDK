@@ -104,5 +104,5 @@ async def main():
     # Завершение работы сессии
     await api.session.close()
 ```
-
+</details>
 API: https://franklin100.ru/developer
