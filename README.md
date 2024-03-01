@@ -11,7 +11,7 @@ SDK - не офиц!
 
     ```python
     key = 'yourKey'
-    franklin_api = FranklinAPI(key)
+    api = FranklinAPI(key)
     ```
 
 2. **Получение списка услуг**
@@ -19,7 +19,7 @@ SDK - не офиц!
     Для получения списка доступных услуг используйте метод `get_services()`:
 
     ```python
-    services = await franklin_api.get_services()
+    services = await api.get_services()
     print(services)
     ```
 
@@ -28,7 +28,7 @@ SDK - не офиц!
     Для создания заказа используйте метод `create_order()` и передайте параметры, такие как `service_id`, `link`, и `quantity`:
 
     ```python
-    order_response = await franklin_api.create_order(service_id=1, link='instagram.com/instagram', quantity=100)
+    order_response = await api.create_order(service_id=1, link='instagram.com/instagram', quantity=100)
     order_id = order_response.get('order')
     print(f"Created Order ID: {order_id}")
     ```
@@ -38,7 +38,7 @@ SDK - не офиц!
     Для получения статуса заказа используйте методы `get_order_status()` или `get_orders_status()`:
 
     ```python
-    status_response = await franklin_api.get_order_status(order_id)
+    status_response = await api.get_order_status(order_id)
     print(f"Order Status: {status_response}")
     ```
 
@@ -47,7 +47,7 @@ SDK - не офиц!
     Для получения текущего баланса аккаунта используйте метод `get_balance()`:
 
     ```python
-    balance_response = await franklin_api.get_balance()
+    balance_response = await api.get_balance()
     print(f"Account Balance: {balance_response}")
     ```
 
@@ -56,7 +56,7 @@ SDK - не офиц!
     Для отмены заказа используйте метод `cancel_order()`:
 
     ```python
-    cancel_response = await franklin_api.cancel_order(order_id)
+    cancel_response = await api.cancel_order(order_id)
     print(f"Cancel Order Response: {cancel_response}")
     ```
 
@@ -65,7 +65,7 @@ SDK - не офиц!
     Не забудьте закрыть сессию после завершения работы:
 
     ```python
-    await franklin_api.session.close()
+    await api.session.close()
     ```
 
 #### Замечание
