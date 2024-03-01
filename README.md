@@ -75,4 +75,30 @@
 <summary>Код Python</summary>
 
 ```python
-# Ваш Python-код здесь
+# async def main():
+    key = 'yourKey'
+    franklin_api = FranklinAPI(key)
+
+    # Получение списка услуг
+    services = await franklin_api.get_services()
+    print(services)
+
+    # Создание заказа
+    order_response = await franklin_api.create_order(service_id=1, link='instagram.com/instagram', quantity=100)
+    order_id = order_response.get('order')
+    print(f"Created Order ID: {order_id}")
+
+    # Получение статуса заказа
+    status_response = await franklin_api.get_order_status(order_id)
+    print(f"Order Status: {status_response}")
+
+    # Получение баланса
+    balance_response = await franklin_api.get_balance()
+    print(f"Account Balance: {balance_response}")
+
+    # Отмена заказа
+    cancel_response = await franklin_api.cancel_order(order_id)
+    print(f"Cancel Order Response: {cancel_response}")
+
+    # Завершение работы сессии
+    await franklin_api.session.close()
