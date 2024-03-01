@@ -77,28 +77,28 @@
 ```python
 async def main():
     key = 'yourKey'
-    franklin_api = FranklinAPI(key)
+    api = FranklinAPI(key)
 
     # Получение списка услуг
-    services = await franklin_api.get_services()
+    services = await api.get_services()
     print(services)
 
     # Создание заказа
-    order_response = await franklin_api.create_order(service_id=1, link='instagram.com/instagram', quantity=100)
+    order_response = await api.create_order(service_id=1, link='instagram.com/instagram', quantity=100)
     order_id = order_response.get('order')
     print(f"Created Order ID: {order_id}")
 
     # Получение статуса заказа
-    status_response = await franklin_api.get_order_status(order_id)
+    status_response = await api.get_order_status(order_id)
     print(f"Order Status: {status_response}")
 
     # Получение баланса
-    balance_response = await franklin_api.get_balance()
+    balance_response = await api.get_balance()
     print(f"Account Balance: {balance_response}")
 
     # Отмена заказа
-    cancel_response = await franklin_api.cancel_order(order_id)
+    cancel_response = await api.cancel_order(order_id)
     print(f"Cancel Order Response: {cancel_response}")
 
     # Завершение работы сессии
-    await franklin_api.session.close()
+    await api.session.close()
