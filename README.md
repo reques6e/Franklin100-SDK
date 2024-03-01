@@ -75,7 +75,7 @@
 <summary>Код Python</summary>
 
 ```python
-# async def main():
+async def main():
     key = 'yourKey'
     franklin_api = FranklinAPI(key)
 
